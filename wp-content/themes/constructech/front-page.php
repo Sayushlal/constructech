@@ -92,7 +92,23 @@
 
       <div class="clients-slider swiper">
         <div class="swiper-wrapper align-items-center">
-          <div class="swiper-slide"><img src="<?php echo get_template_directory_uri() ?>/img/clients/client-1.png" class="img-fluid" alt=""></div>
+          <!--<div class="swiper-slide"><img src="<?php echo get_template_directory_uri() ?>/img/clients/client-1.png" class="img-fluid" alt=""></div>-->
+
+          <?php
+          $args = array(
+            'post_type' => 'clients',
+            'orderby'    => 'date',
+            'order'      => 'ASC',
+          );
+          $client = new WP_Query($args);
+          while ($client->have_posts()) {
+            $client->the_post();
+          ?>
+          <div class="swiper-slide"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" class="img-fluid" alt="<?php the_title(); ?>">
+          </div>
+          <?php }
+          wp_reset_query();
+          ?>
         </div>
       </div>
 
