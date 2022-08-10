@@ -92,8 +92,6 @@
 
       <div class="clients-slider swiper">
         <div class="swiper-wrapper align-items-center">
-          <!--<div class="swiper-slide"><img src="<?php echo get_template_directory_uri() ?>/img/clients/client-1.png" class="img-fluid" alt=""></div>-->
-
           <?php
           $args = array(
             'post_type' => 'clients',
@@ -126,45 +124,35 @@
 
       <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
 
+        <?php
+        $args = array(
+          'post_type' => 'services',
+          'orderby'    => 'date',
+          'order'      => 'ASC',
+        );
+        $client = new WP_Query($args);
+        while ($client->have_posts()) {
+          $client->the_post();
+        ?>
         <div class="col-lg-4 col-md-6">
           <div class="service-item  position-relative">
             <div class="icon">
-              <i class="bi bi-activity"></i>
+              <i class="<?php echo get_field('service_icon'); ?>"></i>
             </div>
-            <h3>Nesciunt Mete</h3>
-            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+            <h3><?php the_title(); ?></h3>
+            <p><?php the_content(); ?></p>
             <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
           </div>
-        </div><!-- End Service Item -->
-
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item position-relative">
-            <div class="icon">
-              <i class="bi bi-broadcast"></i>
-            </div>
-            <h3>Eosle Commodi</h3>
-            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div><!-- End Service Item -->
-
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item position-relative">
-            <div class="icon">
-              <i class="bi bi-easel"></i>
-            </div>
-            <h3>Ledo Markt</h3>
-            <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div><!-- End Service Item -->
-
-
+        </div>
+        <?php }
+        wp_reset_query();
+        ?>
 
       </div>
 
     </div>
-  </section><!-- End Our Services Section -->
+  </section>
+  <!-- End Our Services Section -->
 
   <!-- ======= Testimonials Section ======= -->
   <section id="testimonials" class="testimonials">
@@ -188,8 +176,11 @@
                     <h3>Saul Goodman</h3>
                     <h4>Ceo &amp; Founder</h4>
                     <div class="stars">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                        class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
                     </div>
                   </div>
                 </div>
