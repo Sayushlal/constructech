@@ -36,3 +36,15 @@ function constructech_init()
 }
 
 add_action('after_setup_theme', 'constructech_init');
+
+function constructech_menus()
+{
+  $locations = array(
+    'primary' => "Top Menu",
+    'footer' => "Footer Menu"
+  );
+
+  register_nav_menus($locations);
+}
+
+add_action('init', 'constructech_menus');
