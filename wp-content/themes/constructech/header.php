@@ -42,7 +42,7 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="Construct Technologies logo">
-        <h1>Construct Technologies</h1>
+        <h1><?php echo get_bloginfo('name'); ?></h1>
       </a>
 
       <!-- .navbar -->
