@@ -364,7 +364,8 @@
         </div>
 
         <div class="col-lg-8">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <?php Ninja_Forms()->display(2) ?>
+          <!--<form action="forms/contact.php" method="post" role="form" class="php-email-form">
             <div class="row">
               <div class="col-md-6 form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -386,11 +387,12 @@
             </div>
             <div class="text-center"><button type="submit">Send Message</button></div>
           </form>
-        </div><!-- End Contact Form -->
+        </div>-->
+          <!-- End Contact Form -->
+
+        </div>
 
       </div>
-
-    </div>
   </section><!-- End Contact Section -->
 </main>
 
