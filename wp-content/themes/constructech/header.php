@@ -12,7 +12,7 @@
   <!-- Favicons -->
   <link href="<?php echo get_template_directory_uri() ?>/img/favicon.png" rel="icon">
 
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!--<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
   <?php wp_head(); ?>
 
@@ -44,17 +44,20 @@
         <img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="Construct Technologies logo">
         <h1>Construct Technologies</h1>
       </a>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
 
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav><!-- .navbar -->
+      <!-- .navbar -->
+      <nav id="navbar" class="navbar">
+        <?php
+        wp_nav_menu(
+          array(
+            'menu' => 'primary',
+            'container' => '',
+            'theme_location' => 'primary',
+            'items_wrap' => '<ul>%3$s</ul>'
+          )
+        );
+        ?>
+      </nav>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
