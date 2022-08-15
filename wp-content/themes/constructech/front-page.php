@@ -130,9 +130,9 @@
           'orderby'    => 'date',
           'order'      => 'ASC',
         );
-        $client = new WP_Query($args);
-        while ($client->have_posts()) {
-          $client->the_post();
+        $services = new WP_Query($args);
+        while ($services->have_posts()) {
+          $services->the_post();
         ?>
         <div class="col-lg-4 col-md-6">
           <div class="service-item  position-relative">
@@ -166,83 +166,41 @@
       <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
         <div class="swiper-wrapper">
 
-          <div class="swiper-slide">
-            <div class="testimonial-wrap">
-              <div class="testimonial-item">
-                <div class="d-flex align-items-center">
-                  <img src="<?php echo get_template_directory_uri() ?>/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0"
-                    alt="">
-                  <div>
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <div class="stars">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star"></i>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id,
-                  aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-          </div><!-- End testimonial item -->
+          <?php
+          $args = array(
+            'post_type' => 'testimonials',
+            'orderby'    => 'date',
+            'order'      => 'ASC',
+          );
+          $testimonials = new WP_Query($args);
+          while ($testimonials->have_posts()) {
+            $testimonials->the_post();
+          ?>
 
           <div class="swiper-slide">
             <div class="testimonial-wrap">
               <div class="testimonial-item">
                 <div class="d-flex align-items-center">
-                  <img src="<?php echo get_template_directory_uri() ?>/img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0"
-                    alt="">
+                  <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" class="testimonial-img flex-shrink-0"
+                    alt="<?php the_title(); ?>">
                   <div>
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
+                    <h3><?php the_title(); ?></h3>
+                    <h4><?php echo get_field('designation'); ?></h4>
                     <div class="stars">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                        class="bi bi-star-fill"></i>
+                      <?php echo str_repeat('<i <i class="bi bi-star-fill" aria-hidden="true"></i>', get_field('rating')); ?>
                     </div>
                   </div>
                 </div>
                 <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit
-                  sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bi bi-quote quote-icon-right"></i>
+                  <i class="bi bi-quote quote-icon-left"></i><?php the_content(); ?><i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
             </div>
-          </div><!-- End testimonial item -->
+          </div>
 
-          <div class="swiper-slide">
-            <div class="testimonial-wrap">
-              <div class="testimonial-item">
-                <div class="d-flex align-items-center">
-                  <img src="<?php echo get_template_directory_uri() ?>/img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0"
-                    alt="">
-                  <div>
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <div class="stars">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                        class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis
-                  noster aute amet eram fore quis sint minim.
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-          </div><!-- End testimonial item -->
+          <?php }
+          wp_reset_query();
+          ?>
 
         </div>
         <div class="swiper-pagination"></div>

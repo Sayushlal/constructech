@@ -1081,7 +1081,7 @@ section {
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: #009d8b;
+  color: var(--color-primary);
   font-size: 26px;
   line-height: 0;
 }
