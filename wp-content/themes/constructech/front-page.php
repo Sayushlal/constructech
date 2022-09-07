@@ -66,12 +66,12 @@
 
       <div class="section-header">
         <h2>About Us</h2>
-        <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+        <!--<p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>-->
       </div>
 
       <div class="row gy-4">
         <div class="col-lg-6">
-          <h3>Voluptatem dignissimos provident quasi corporis</h3>
+          <!--<h3>Voluptatem dignissimos provident quasi corporis</h3>-->
           <img src="<?php echo get_template_directory_uri() ?>/img/about.jpg" class="img-fluid rounded-4 mb-4" alt="">
 
         </div>
@@ -134,7 +134,7 @@
         while ($services->have_posts()) {
           $services->the_post();
         ?>
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-3 col-md-6">
           <div class="service-item  position-relative">
             <div class="icon">
               <i class="<?php echo get_field('service_icon'); ?>"></i>
