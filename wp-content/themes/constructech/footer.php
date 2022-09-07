@@ -11,8 +11,8 @@
         <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis
           eu non diam phasellus.</p>
         <div class="social-links d-flex mt-4">
-          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-          <a href="https://www.linkedin.com/company/construct-technologies/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <!--<a href="#" class="twitter"><i class="bi bi-twitter"></i></a>-->
+          <a href="<?php echo get_option('company_linkedin', ''); ?>" class="linkedin"><i class="bi bi-linkedin"></i></a>
         </div>
       </div>
 
@@ -53,9 +53,9 @@
       <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
         <h4>Contact Us</h4>
         <p>
-          Mangal Bazar, Lalitpur<br>
-          <strong>Phone:</strong> +977 9803432632<br>
-          <strong>Email:</strong> technologyconstruct@gmail.com<br>
+          <?php echo get_option('company_address', ''); ?><br>
+          <strong>Phone:</strong> <?php echo get_option('company_phone', ''); ?><br>
+          <strong>Email:</strong> <?php echo get_option('company_email', ''); ?><br>
         </p>
 
       </div>

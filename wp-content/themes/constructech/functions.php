@@ -1,4 +1,7 @@
 <?php
+
+include 'includes/NewGeneralSetting.php'; // Class for handling general settings custom field.
+
 function constructech_setup()
 {
   //Google Fonts
@@ -48,3 +51,44 @@ function constructech_menus()
 }
 
 add_action('init', 'constructech_menus');
+
+$fields = array(
+  array(
+    'name' => 'Company Address',
+    'type' => 'text',
+    'id' => 'company_address',
+    'machine_name' => 'company_address',
+    'machine_name_field' => 'company_address_field',
+  ),
+  array(
+    'name' => 'Company Phone',
+    'type' => 'text',
+    'id' => 'company_phone',
+    'machine_name' => 'company_phone',
+    'machine_name_field' => 'company_phone_field',
+  ),
+  array(
+    'name' => 'Company Email',
+    'type' => 'text',
+    'id' => 'company_email',
+    'machine_name' => 'company_email',
+    'machine_name_field' => 'company_email_field',
+  ),
+  array(
+    'name' => 'Company LinkedIn',
+    'type' => 'text',
+    'id' => 'company_linkedin',
+    'machine_name' => 'company_linkedin',
+    'machine_name_field' => 'company_linkedin_field',
+  ),
+  array(
+    'name' => 'Opening hours',
+    'type' => 'text',
+    'id' => 'opening_hours',
+    'machine_name' => 'opening_hours',
+    'machine_name_field' => 'opening_hours_field',
+  ),
+);
+foreach ($fields as $field) {
+  $fieldSetup = new NewGeneralSetting($field);
+}
